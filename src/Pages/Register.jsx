@@ -1,10 +1,13 @@
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import React, { useState } from "react";
 import { Link } from "react-router";
 import { auth } from "../Firebase/Firebase.config";
 import { toast } from "react-toastify";
 import { FaEye } from "react-icons/fa";
 import { IoEyeOff } from "react-icons/io5";
+import { GoogleAuthProvider } from "firebase/auth";
+
+const googleProvider = new GoogleAuthProvider();
 
 const Register = () => {
   const [email, setEmail] = useState("");
@@ -40,6 +43,22 @@ const Register = () => {
           // alert(errorMessage);
         }
         console.log(errorMessage);
+      });
+  };
+
+  const handleGoogleSignIn = () => {
+    signInWithPopup(auth, googleProvider)
+      .then((res) => {
+        const user = res.user;
+        console.log("user", user);
+        toast.success("Login Succesfull!");
+      })
+      .catch((err) => {
+        const errorMessage = err.message;
+        console.log("error", errorMessage);
+        if (errorMessage) {
+          toast.error(errorMessage);
+        }
       });
   };
 
@@ -101,6 +120,15 @@ const Register = () => {
           >
             Register
           </button>
+
+          <div className="py-10 flex justify-center items-center ">
+            <button
+              onClick={handleGoogleSignIn}
+              className="p-2 w-full font-semibold bg-gray-300 rounded-full cursor-pointer"
+            >
+              Continue With Google Login
+            </button>
+          </div>
         </form>
 
         <p className="text-sm text-center mt-4">
