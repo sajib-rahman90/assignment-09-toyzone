@@ -3,11 +3,15 @@ import React, { useState } from "react";
 import { Link } from "react-router";
 import { auth } from "../Firebase/Firebase.config";
 import { toast } from "react-toastify";
+import { FaEye } from "react-icons/fa";
+import { IoEyeOff } from "react-icons/io5";
 
 const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [displayname, setDisplayName] = useState("");
+
+  const [show, setShow] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -20,7 +24,7 @@ const Register = () => {
       );
       return;
     }
-    console.log(name, email, password);
+    console.log(displayname, email, password);
 
     createUserWithEmailAndPassword(auth, email, password)
       .then((res) => {
@@ -43,7 +47,7 @@ const Register = () => {
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <div className="w-full max-w-md bg-white p-8 rounded-xl shadow-md">
         <h2 className="text-2xl font-semibold text-center mb-6">
-          Create Account
+          Create an Account
         </h2>
 
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -73,16 +77,22 @@ const Register = () => {
           </div>
 
           {/* Password */}
-          <div>
+          <div className="relative">
             <label className="block text-sm font-medium mb-1">Password</label>
             <input
-              type="password"
+              type={show ? "text" : "password"}
               placeholder="Enter your password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
             />
+            <span
+              onClick={() => setShow(!show)}
+              className="absolute right-2 top-9 cursor-pointer z-20"
+            >
+              {show ? <FaEye /> : <IoEyeOff />}
+            </span>
           </div>
 
           <button
