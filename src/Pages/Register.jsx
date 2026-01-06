@@ -1,7 +1,44 @@
-import React from "react";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import React, { useState } from "react";
 import { Link } from "react-router";
+import { auth } from "../Firebase/Firebase.config";
+import { toast } from "react-toastify";
 
 const Register = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [displayname, setDisplayName] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z]).{6,}$/;
+
+    if (!passwordRegex.test(password)) {
+      toast.error(
+        "Password must be at least 6 characters long and include both uppercase and lowercase letters."
+      );
+      return;
+    }
+    console.log(name, email, password);
+
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((res) => {
+        // alert("Registation Succesfull!");
+        toast.success("Registation Succesfull!");
+
+        console.log(res);
+      })
+      .catch((err) => {
+        const errorMessage = err.message;
+        if (errorMessage) {
+          toast.error(errorMessage);
+          // alert(errorMessage);
+        }
+        console.log(errorMessage);
+      });
+  };
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <div className="w-full max-w-md bg-white p-8 rounded-xl shadow-md">
@@ -9,15 +46,27 @@ const Register = () => {
           Create Account
         </h2>
 
-        <form className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-4">
+          {/* Name */}
+          <div>
+            <label className="block text-sm font-medium mb-1">Name</label>
+            <input
+              type="text"
+              placeholder="Enter your Name"
+              value={displayname}
+              onChange={(e) => setDisplayName(e.target.value)}
+              required
+              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            />
+          </div>
           {/* Email */}
           <div>
             <label className="block text-sm font-medium mb-1">Email</label>
             <input
               type="email"
               placeholder="Enter your email"
-              // value={email}
-              // onChange={(e) => setEmail(e.target.value)}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               required
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
             />
@@ -29,8 +78,8 @@ const Register = () => {
             <input
               type="password"
               placeholder="Enter your password"
-              // value={password}
-              // onChange={(e) => setPassword(e.target.value)}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               required
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
             />
