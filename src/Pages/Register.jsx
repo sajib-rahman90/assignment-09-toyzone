@@ -1,4 +1,8 @@
-import { createUserWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  signInWithPopup,
+  updateProfile,
+} from "firebase/auth";
 import React, { useState } from "react";
 import { Link } from "react-router";
 import { auth } from "../Firebase/Firebase.config";
@@ -12,7 +16,8 @@ const googleProvider = new GoogleAuthProvider();
 const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [displayname, setDisplayName] = useState("");
+  const [name, setName] = useState("");
+  const [photo, setPhoto] = useState("");
 
   const [show, setShow] = useState(false);
 
@@ -27,13 +32,22 @@ const Register = () => {
       );
       return;
     }
-    console.log(displayname, email, password);
+    console.log(name, email, password, photo);
 
     createUserWithEmailAndPassword(auth, email, password)
       .then((res) => {
-        // alert("Registation Succesfull!");
+        updateProfile(res.user, {
+          displayName: name,
+          photoURL: photo,
+        })
+          .then((res) => {
+            toast.success("Registation Succesfull!");
+            console.log(res);
+          })
+          .catch((err) => {
+            toast.error(err);
+          });
         toast.success("Registation Succesfull!");
-
         console.log(res);
       })
       .catch((err) => {
@@ -76,8 +90,8 @@ const Register = () => {
             <input
               type="text"
               placeholder="Enter your Name"
-              value={displayname}
-              onChange={(e) => setDisplayName(e.target.value)}
+              value={name}
+              onChange={(e) => setName(e.target.value)}
               required
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
             />
@@ -90,6 +104,18 @@ const Register = () => {
               placeholder="Enter your email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              required
+              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            />
+          </div>
+          {/* Photo */}
+          <div>
+            <label className="block text-sm font-medium mb-1">Photo</label>
+            <input
+              type="text"
+              placeholder="Enter your PhotoURL"
+              value={photo}
+              onChange={(e) => setPhoto(e.target.value)}
               required
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
             />
