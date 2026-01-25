@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { AuthContext } from "./AuthContext";
 import {
   createUserWithEmailAndPassword,
   GoogleAuthProvider,
+  onAuthStateChanged,
   sendPasswordResetEmail,
   signInWithEmailAndPassword,
   signInWithPopup,
@@ -53,6 +54,16 @@ const AuthProvider = ({ children }) => {
     signOutUserFunc,
     sendPasswordResetEmailFunc,
   };
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currUser) => {
+      console.log(currUser);
+      setUser(currUser);
+    });
+    return () => {
+      unsubscribe;
+    };
+  }, []);
 
   return <AuthContext value={authInfo}>{children}</AuthContext>;
 };
