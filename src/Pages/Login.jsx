@@ -1,27 +1,28 @@
-import {
-  sendPasswordResetEmail,
-  signInWithEmailAndPassword,
-  signInWithPopup,
-  signOut,
-} from "firebase/auth";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router";
-import { auth } from "../Firebase/Firebase.config";
 import { toast } from "react-toastify";
-
 import { GoogleAuthProvider } from "firebase/auth";
-
-const googleProvider = new GoogleAuthProvider();
+import { AuthContext } from "../Context/AuthContext";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [user, setUser] = useState(null);
+  // const [user, setUser] = useState(null);
+
+  const {
+    signInWithEmailAndPasswordFunc,
+    signInWithEmailFunc,
+    signOutUserFunc,
+    sendPasswordResetEmailFunc,
+    user,
+    setUser,
+  } = useContext(AuthContext);
 
   const handleLogIn = (e) => {
     e.preventDefault();
 
-    signInWithEmailAndPassword(auth, email, password)
+    // signInWithEmailAndPassword(auth, email, password)
+    signInWithEmailAndPasswordFunc(email, password)
       .then((res) => {
         console.log(res);
         setUser(res.user);
@@ -37,7 +38,8 @@ const Login = () => {
   };
 
   const handleSignOut = () => {
-    signOut(auth)
+    // signOut(auth)
+    signOutUserFunc()
       .then(() => {
         toast.success("Sign Out Succesfull!");
         setUser(null);
@@ -48,7 +50,8 @@ const Login = () => {
   };
 
   const handleGoogleSignIn = () => {
-    signInWithPopup(auth, googleProvider)
+    // signInWithPopup(auth, googleProvider)
+    signInWithEmailFunc()
       .then((res) => {
         console.log(res);
         setUser(res.user);
@@ -64,7 +67,8 @@ const Login = () => {
   };
 
   const handlResetPassword = () => {
-    sendPasswordResetEmail(auth, email)
+    // sendPasswordResetEmail(auth, email)
+    sendPasswordResetEmailFunc(email)
       .then((res) => {
         toast.success("Check your email to reset password");
       })

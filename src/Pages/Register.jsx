@@ -1,15 +1,12 @@
-import {
-  createUserWithEmailAndPassword,
-  signInWithPopup,
-  updateProfile,
-} from "firebase/auth";
-import React, { useState } from "react";
+import { signInWithPopup } from "firebase/auth";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router";
 import { auth } from "../Firebase/Firebase.config";
 import { toast } from "react-toastify";
 import { FaEye } from "react-icons/fa";
 import { IoEyeOff } from "react-icons/io5";
 import { GoogleAuthProvider } from "firebase/auth";
+import { AuthContext } from "../Context/AuthContext";
 
 const googleProvider = new GoogleAuthProvider();
 
@@ -21,6 +18,9 @@ const Register = () => {
 
   const [show, setShow] = useState(false);
 
+  const { createUserWithEmailAndPasswordFunc, updateProfileFunc } =
+    useContext(AuthContext);
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -28,18 +28,20 @@ const Register = () => {
 
     if (!passwordRegex.test(password)) {
       toast.error(
-        "Password must be at least 6 characters long and include both uppercase and lowercase letters."
+        "Password must be at least 6 characters long and include both uppercase and lowercase letters.",
       );
       return;
     }
     console.log(name, email, password, photo);
 
-    createUserWithEmailAndPassword(auth, email, password)
+    // createUserWithEmailAndPassword(auth, email, password)
+    createUserWithEmailAndPasswordFunc(email, password)
       .then((res) => {
-        updateProfile(res.user, {
-          displayName: name,
-          photoURL: photo,
-        })
+        // updateProfile(res.user, {
+        //   displayName: name,
+        //   photoURL: photo,
+        // })
+        updateProfileFunc(name, photo)
           .then((res) => {
             toast.success("Registation Succesfull!");
             console.log(res);
