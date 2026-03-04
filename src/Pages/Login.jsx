@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import { toast } from "react-toastify";
 import { GoogleAuthProvider } from "firebase/auth";
 import { AuthContext } from "../Context/AuthContext";
@@ -12,11 +12,13 @@ const Login = () => {
   const {
     signInWithEmailAndPasswordFunc,
     signInWithEmailFunc,
-    signOutUserFunc,
     sendPasswordResetEmailFunc,
-    user,
     setUser,
   } = useContext(AuthContext);
+
+  const location = useLocation();
+  const from = location.state || "/";
+  const navigate = useNavigate();
 
   const handleLogIn = (e) => {
     e.preventDefault();
@@ -27,6 +29,7 @@ const Login = () => {
         console.log(res);
         setUser(res.user);
         toast.success("Login Succesfull!");
+        navigate(from);
       })
       .catch((err) => {
         const errorMessage = err.message;
@@ -44,6 +47,7 @@ const Login = () => {
         console.log(res);
         setUser(res.user);
         toast.success("Login Succesfull!");
+        navigate(from);
       })
       .catch((err) => {
         const errorMessage = err.message;

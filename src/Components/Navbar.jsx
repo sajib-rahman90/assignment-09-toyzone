@@ -39,6 +39,16 @@ const Navbar = () => {
             >
               Register
             </NavLink>
+            {user && (
+              <NavLink
+                to={"my-profile"}
+                className={({ isActive }) =>
+                  isActive ? "text-purple-500" : ""
+                }
+              >
+                My Profile
+              </NavLink>
+            )}
           </div>
           {/* <button className="btn primary"> log</button> */}
           {user ? (
