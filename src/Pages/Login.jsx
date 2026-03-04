@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router";
 import { toast } from "react-toastify";
 import { GoogleAuthProvider } from "firebase/auth";
@@ -14,11 +14,18 @@ const Login = () => {
     signInWithEmailFunc,
     sendPasswordResetEmailFunc,
     setUser,
+    user,
   } = useContext(AuthContext);
 
   const location = useLocation();
   const from = location.state || "/";
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (user) {
+      navigate("/");
+    }
+  }, [user, navigate]);
 
   const handleLogIn = (e) => {
     e.preventDefault();

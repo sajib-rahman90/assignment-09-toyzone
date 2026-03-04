@@ -52,10 +52,10 @@ const Navbar = () => {
           </div>
           {/* <button className="btn primary"> log</button> */}
           {user ? (
-            <div className="relative group text-center flex justify-between items-center gap-[20px] space-y-3">
+            <div className="relative group text-center flex justify-between items-center gap-5 space-y-3">
               <img
                 src={user?.photoURL || "https://via.placeholder.com/88"}
-                className="h-[40px] mb-[0px]  rounded-full mx-auto"
+                className="h-10 mb-0  rounded-full mx-auto"
                 alt=""
               />
 
