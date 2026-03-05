@@ -21,11 +21,18 @@ const AuthProvider = ({ children }) => {
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
-  const updateProfileFunc = (name, photo) => {
-    return updateProfile(auth.currentUser, {
+  const updateProfileFunc = async (name, photo) => {
+    await updateProfile(auth.currentUser, {
       displayName: name,
       photoURL: photo,
     });
+
+    const updatedUser = {
+      ...auth.currentUser,
+      displayName: name,
+      photoURL: photo,
+    };
+    setUser(updatedUser);
   };
 
   const signInWithEmailAndPasswordFunc = (email, password) => {
