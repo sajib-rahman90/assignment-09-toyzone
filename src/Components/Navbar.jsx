@@ -21,11 +21,13 @@ const Navbar = () => {
 
   return (
     <div>
-      <nav className="bg-indigo-600 text-white px-8 py-4">
-        <div className=" container mx-auto flex justify-between items-center">
-          <h1 className="text-xl font-bold">ToyZone</h1>
+      <nav className="bg-indigo-600 text-white px-4 md:px-8 py-4">
+        <div className="container mx-auto flex flex-col md:flex-row md:justify-between md:items-center gap-4">
+          <h1 className="text-xl font-bold text-center md:text-left">
+            ToyZone
+          </h1>
 
-          <div className="space-x-4">
+          <div className="flex flex-col md:flex-row items-center gap-3 md:space-x-4">
             <NavLink
               to={"/"}
               className={({ isActive }) => (isActive ? "text-purple-500" : "")}
@@ -50,27 +52,25 @@ const Navbar = () => {
               </NavLink>
             )}
           </div>
-          {/* <button className="btn primary"> log</button> */}
           {user ? (
-            <div className="relative group text-center flex justify-between items-center gap-5 space-y-3">
+            <div className="relative group text-center flex flex-col md:flex-row justify-between items-center gap-3 md:gap-5">
               <img
                 src={user?.photoURL || "https://via.placeholder.com/88"}
-                className="h-10 mb-0  rounded-full mx-auto"
+                className="h-10 mb-0 rounded-full mx-auto"
                 alt=""
               />
 
               <div
                 className="absolute top-full left-1/2 -translate-x-1/2 mt-2 
-                  hidden group-hover:block 
-                  bg-black text-white text-sm px-3 py-1 rounded whitespace-nowrap"
+            hidden group-hover:block 
+            bg-black text-white text-sm px-3 py-1 rounded whitespace-nowrap"
               >
                 {user?.displayName || "No Name"}
               </div>
-              {/* <h2 className="text-xl font-semibold">{user?.displayName}</h2> */}
-              {/* <p>{user?.email}</p> */}
+
               <button
                 onClick={handleSignOut}
-                className="w-full bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700 transition"
+                className="w-full md:w-auto bg-indigo-600 text-white py-2 px-4 rounded-lg hover:bg-indigo-700 transition"
               >
                 Sign Out
               </button>
