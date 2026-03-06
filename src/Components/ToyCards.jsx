@@ -1,5 +1,6 @@
 import { FaStar } from "react-icons/fa";
 import { useLoaderData } from "react-router";
+import { Link } from "react-router";
 
 const ToyCards = () => {
   const toys = useLoaderData();
@@ -45,18 +46,21 @@ const ToyCards = () => {
                 <span className="ml-2 text-sm text-gray-600">{toy.rating}</span>
               </div>
 
-              <p className="text-sm text-gray-600 mb-1">
-                Available:{" "}
-                <span className="font-medium">{toy.availableQuantity}</span>
-              </p>
+              <div className="flex items-center justify-between">
+                <p className="text-lg font-bold text-indigo-600 mb-4">
+                  ${toy.price}
+                </p>
+                <p className="text-sm text-gray-600 mb-1">
+                  Available:{" "}
+                  <span className="font-medium">{toy.availableQuantity}</span>
+                </p>
+              </div>
 
-              <p className="text-lg font-bold text-indigo-600 mb-4">
-                ${toy.price}
-              </p>
-
-              <button className="w-full bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700 transition">
-                View More
-              </button>
+              <Link to={`/toy/${toy.toyId}`}>
+                <button className="w-full bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700 transition">
+                  View More
+                </button>
+              </Link>
             </div>
           </div>
         ))}

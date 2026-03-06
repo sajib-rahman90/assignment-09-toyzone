@@ -6,12 +6,15 @@ import Register from "../Pages/Register";
 import ErrorPage from "../Pages/ErrorPage";
 import MyProfile from "../Pages/MyProfile";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import ToyDetails from "../Pages/ToyDetails";
+import Loading from "../Components/Loading";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout />,
     errorElement: <ErrorPage />,
+    hydrateFallbackElement: <Loading />,
     children: [
       {
         index: true,
@@ -33,6 +36,15 @@ export const router = createBrowserRouter([
             <MyProfile />
           </PrivateRoute>
         ),
+      },
+      {
+        path: "/toy/:id",
+        element: (
+          <PrivateRoute>
+            <ToyDetails />
+          </PrivateRoute>
+        ),
+        loader: () => fetch("/toys.json"),
       },
     ],
   },
