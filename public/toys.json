@@ -1,0 +1,110 @@
+[
+  {
+    "toyId": 1,
+    "toyName": "Lego Classic Bricks",
+    "sellerName": "Toys R Us Local",
+    "sellerEmail": "contact@toysruslocal.com",
+    "price": 49.99,
+    "rating": 4.7,
+    "availableQuantity": 75,
+    "description": "A timeless set of colorful Lego bricks that encourages creativity and problem-solving. Kids can build anything they imagine.",
+    "pictureURL": "https://images.unsplash.com/photo-1632304529453-f9338ac1c3e2?q=80&w=1331&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "subCategory": "Building Blocks"
+  },
+  {
+    "toyId": 2,
+    "toyName": "Remote Control Racing Car",
+    "sellerName": "Fun Toy Store",
+    "sellerEmail": "sales@funtoystore.com",
+    "price": 35.5,
+    "rating": 3.5,
+    "availableQuantity": 40,
+    "description": "A fast remote control racing car with durable wheels and easy controls for kids.",
+    "pictureURL": "https://media.istockphoto.com/id/1289962067/photo/the-boy-is-controling-the-blue-toy-car-with-a-remote-control-child-play-with-a-toy-car.jpg?s=1024x1024&w=is&k=20&c=9cu5-hQFvY1r_twu9afF7xz9zt0LaQbL0wD9XlY40X0=",
+    "subCategory": "Remote Control"
+  },
+  {
+    "toyId": 3,
+    "toyName": "Barbie Dream Doll",
+    "sellerName": "Kids World Shop",
+    "sellerEmail": "info@kidsworld.com",
+    "price": 29.99,
+    "rating": 4.6,
+    "availableQuantity": 55,
+    "description": "Beautiful Barbie doll with stylish dress and accessories for imaginative play.",
+    "pictureURL": "https://images.unsplash.com/photo-1574165425243-9eb1d2518658?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "subCategory": "Dolls"
+  },
+  {
+    "toyId": 4,
+    "toyName": "Wooden Puzzle Board",
+    "sellerName": "Smart Kids Toys",
+    "sellerEmail": "support@smartkidstoys.com",
+    "price": 15.75,
+    "rating": 4.4,
+    "availableQuantity": 90,
+    "description": "Educational wooden puzzle board that improves children's problem solving skills.",
+    "pictureURL": "https://plus.unsplash.com/premium_photo-1702830270361-09cd9e2e58b2?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "subCategory": "Puzzle"
+  },
+  {
+    "toyId": 5,
+    "toyName": "Kids Kitchen Play Set",
+    "sellerName": "Little Chef Store",
+    "sellerEmail": "hello@littlechefstore.com",
+    "price": 54.99,
+    "rating": 4.8,
+    "availableQuantity": 30,
+    "description": "Kitchen play set with mini cooking tools for fun role play activities.",
+    "pictureURL": "https://images.thdstatic.com/productImages/d739728e-d299-4601-b4bf-1d7862c53efc/svn/nyeekoy-kids-toys-th17y0732-64_600.jpg",
+    "subCategory": "Role Play"
+  },
+  {
+    "toyId": 6,
+    "toyName": "Plush Teddy Bear",
+    "sellerName": "Happy Toys Market",
+    "sellerEmail": "contact@happytoys.com",
+    "price": 18.25,
+    "rating": 4.7,
+    "availableQuantity": 120,
+    "description": "Soft and cuddly teddy bear made with premium plush material.",
+    "pictureURL": "https://plus.unsplash.com/premium_photo-1725075087077-4a904603f416?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "subCategory": "Soft Toys"
+  },
+  {
+    "toyId": 7,
+    "toyName": "Kids Drawing Art Set",
+    "sellerName": "Creative Kids Hub",
+    "sellerEmail": "art@creativekids.com",
+    "price": 22.49,
+    "rating": 3.5,
+    "availableQuantity": 65,
+    "description": "Drawing and coloring set with crayons, markers and sketch pads.",
+    "pictureURL": "https://media.diy.com/is/image/KingfisherDigital/portable-art-set-drawing-painting-art-supplies-for-kids-pink-art-set~0747674441547_01c_MP?$MOB_PREV$&$width=1200&$height=1200",
+    "subCategory": "Art & Craft"
+  },
+  {
+    "toyId": 8,
+    "toyName": "Mini Basketball Hoop",
+    "sellerName": "Active Play Store",
+    "sellerEmail": "support@activeplay.com",
+    "price": 27.99,
+    "rating": 4.3,
+    "availableQuantity": 50,
+    "description": "Indoor mini basketball hoop set perfect for fun sports activity at home.",
+    "pictureURL": "https://babybazarbd.com/wp-content/uploads/2021/01/basket-ball-rim-set.jpg.webp",
+    "subCategory": "Sports Toys"
+  },
+  {
+    "toyId": 9,
+    "toyName": "Kids Train Track Set",
+    "sellerName": "Rail Toy Store",
+    "sellerEmail": "sales@railtoystore.com",
+    "price": 44.75,
+    "rating": 3.7,
+    "availableQuantity": 35,
+    "description": "Classic train track set with locomotive and wagons for creative play.",
+    "pictureURL": "https://plus.unsplash.com/premium_photo-1661448604365-4ef469471a6d?q=80&w=1174&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "subCategory": "Vehicle Toys"
+  }
+]
