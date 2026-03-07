@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useLoaderData, useParams } from "react-router";
 import { useState } from "react";
+import PageTitle from "../Components/PageTitle";
 
 const ToyDetails = () => {
   const toys = useLoaderData();
@@ -25,6 +26,7 @@ const ToyDetails = () => {
 
   return (
     <div className="container bg-gray-100 mx-auto px-4 py-10">
+      <PageTitle title={`${toy.toyName}`} />
       {/* Toy Info */}
       <div className="grid md:grid-cols-2 gap-8 bg-white p-6 rounded shadow">
         <img

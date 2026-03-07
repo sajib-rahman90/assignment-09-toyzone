@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../Context/AuthContext";
+import PageTitle from "../Components/PageTitle";
 
 const MyProfile = () => {
   const { user, updateProfileFunc } = useContext(AuthContext);
@@ -33,6 +34,7 @@ const MyProfile = () => {
 
   return (
     <div className="min-h-screen bg-gray-100 flex justify-center items-center ">
+      <PageTitle title="My Profile" />
       <div className="max-w-md w-full my-10 p-6  rounded-xl bg-white shadow-md ">
         <h1 className="text-2xl font-semibold text-center mb-6">My Profile</h1>
 

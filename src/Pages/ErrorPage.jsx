@@ -1,9 +1,11 @@
 import React from "react";
 import error_404 from "../assets/error-404.png";
+import PageTitle from "../Components/PageTitle";
 
 const ErrorPage = () => {
   return (
     <div>
+      <PageTitle title="Error Page" />
       <div className="bg-[#F5F5F5] flex flex-col items-center justify-center p-5 lg:p-20 md:p-10  space-y-3">
         <div>
           <img src={error_404} alt="" />

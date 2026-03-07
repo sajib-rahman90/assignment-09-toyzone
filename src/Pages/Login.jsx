@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router";
 import { toast } from "react-toastify";
 import { GoogleAuthProvider } from "firebase/auth";
 import { AuthContext } from "../Context/AuthContext";
+import PageTitle from "../Components/PageTitle";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -81,6 +82,7 @@ const Login = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
+      <PageTitle title="Login" />
       <div className="w-full max-w-md bg-white p-8 rounded-xl shadow-md">
         <form onSubmit={handleLogIn} className="space-y-4">
           <h2 className="text-2xl font-semibold text-center mb-6">

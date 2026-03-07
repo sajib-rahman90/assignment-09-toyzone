@@ -7,6 +7,7 @@ import { FaEye } from "react-icons/fa";
 import { IoEyeOff } from "react-icons/io5";
 import { GoogleAuthProvider } from "firebase/auth";
 import { AuthContext } from "../Context/AuthContext";
+import PageTitle from "../Components/PageTitle";
 
 const googleProvider = new GoogleAuthProvider();
 
@@ -80,6 +81,7 @@ const Register = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
+      <PageTitle title="Register" />
       <div className="w-full max-w-md bg-white p-8 rounded-xl shadow-md">
         <h2 className="text-2xl font-semibold text-center mb-6">
           Create an Account
