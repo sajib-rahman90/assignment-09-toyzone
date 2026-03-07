@@ -22,7 +22,7 @@ const HomeSlider = () => {
           modules={[Navigation, Pagination, Autoplay]}
           spaceBetween={30}
           navigation
-          pagination={{ clickable: true }}
+          // pagination={{ clickable: true }}
           autoplay={{ delay: 3000, disableOnInteraction: false }}
           breakpoints={{
             0: { slidesPerView: 1 },

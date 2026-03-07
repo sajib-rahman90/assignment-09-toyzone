@@ -6,7 +6,7 @@ const ToyCards = () => {
   const toys = useLoaderData();
   const stars = [1, 2, 3, 4, 5];
   return (
-    <div className="container mx-auto px-4 py-12 bg-gray-100">
+    <div id="popular-toys" className="container mx-auto px-4 py-12 bg-gray-100">
       <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
         Popular Toys
       </h2>

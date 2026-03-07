@@ -3,6 +3,8 @@ import { useLoaderData } from "react-router";
 import ToyCards from "../Components/ToyCards";
 import HomeSlider from "../Components/HomeSlider";
 import PageTitle from "../Components/PageTitle";
+import WhyChooseUs from "../Components/WhyChooseUs";
+import DiscountToys from "../Components/DiscountToys";
 
 const Home = () => {
   const toys = useLoaderData();
@@ -15,6 +17,12 @@ const Home = () => {
       </section>
       <section>
         <ToyCards />
+      </section>
+      <section>
+        <WhyChooseUs />
+      </section>
+      <section>
+        <DiscountToys />
       </section>
     </div>
   );
