@@ -36,10 +36,10 @@ const Navbar = () => {
             </NavLink>
 
             <NavLink
-              to={"/register"}
+              to={"/about-us"}
               className={({ isActive }) => (isActive ? "text-purple-500" : "")}
             >
-              Register
+              About Us
             </NavLink>
             {user && (
               <NavLink
@@ -49,6 +49,16 @@ const Navbar = () => {
                 }
               >
                 My Profile
+              </NavLink>
+            )}
+            {user && (
+              <NavLink
+                to={"my-orders"}
+                className={({ isActive }) =>
+                  isActive ? "text-purple-500" : ""
+                }
+              >
+                Orders
               </NavLink>
             )}
           </div>

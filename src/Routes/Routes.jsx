@@ -8,6 +8,8 @@ import MyProfile from "../Pages/MyProfile";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import ToyDetails from "../Pages/ToyDetails";
 import Loading from "../Components/Loading";
+import Orders from "../Pages/Orders";
+import AboutUs from "../Pages/AboutUs";
 
 export const router = createBrowserRouter([
   {
@@ -45,6 +47,18 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: () => fetch("/toys.json"),
+      },
+      {
+        path: "my-orders",
+        element: (
+          <PrivateRoute>
+            <Orders />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "about-us",
+        element: <AboutUs />,
       },
     ],
   },
