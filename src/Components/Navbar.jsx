@@ -30,23 +30,21 @@ const Navbar = () => {
           <div className="flex flex-col md:flex-row items-center gap-3 md:space-x-4">
             <NavLink
               to={"/"}
-              className={({ isActive }) => (isActive ? "text-purple-500" : "")}
+              className={({ isActive }) => (isActive ? "text-cyan-300" : "")}
             >
               Home
             </NavLink>
 
             <NavLink
               to={"/about-us"}
-              className={({ isActive }) => (isActive ? "text-purple-500" : "")}
+              className={({ isActive }) => (isActive ? "text-cyan-300" : "")}
             >
               About Us
             </NavLink>
             {user && (
               <NavLink
                 to={"my-profile"}
-                className={({ isActive }) =>
-                  isActive ? "text-purple-500" : ""
-                }
+                className={({ isActive }) => (isActive ? "text-cyan-300" : "")}
               >
                 My Profile
               </NavLink>
@@ -54,9 +52,7 @@ const Navbar = () => {
             {user && (
               <NavLink
                 to={"my-orders"}
-                className={({ isActive }) =>
-                  isActive ? "text-purple-500" : ""
-                }
+                className={({ isActive }) => (isActive ? "text-cyan-300" : "")}
               >
                 Orders
               </NavLink>
@@ -88,7 +84,7 @@ const Navbar = () => {
           ) : (
             <NavLink
               to={"/login"}
-              className={({ isActive }) => (isActive ? "text-purple-500" : "")}
+              className={({ isActive }) => (isActive ? "text-cyan-300" : "")}
             >
               Login
             </NavLink>
