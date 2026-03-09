@@ -63,7 +63,7 @@ const Register = () => {
     signInWithPopup(auth, googleProvider)
       .then((res) => {
         const user = res.user;
-        console.log("user", user);
+        // console.log("user", user);
         toast.success("Login Succesfull!");
       })
       .catch((err) => {

@@ -34,14 +34,14 @@ const Login = () => {
     // signInWithEmailAndPassword(auth, email, password)
     signInWithEmailAndPasswordFunc(email, password)
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         setUser(res.user);
         toast.success("Login Succesfull!");
         navigate(from);
       })
       .catch((err) => {
         const errorMessage = err.message;
-        console.log("error", errorMessage);
+        // console.log("error", errorMessage);
         if (errorMessage) {
           toast.error(errorMessage);
         }
@@ -52,14 +52,14 @@ const Login = () => {
     // signInWithPopup(auth, googleProvider)
     signInWithEmailFunc()
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         setUser(res.user);
         toast.success("Login Succesfull!");
         navigate(from);
       })
       .catch((err) => {
         const errorMessage = err.message;
-        console.log("error", errorMessage);
+        // console.log("error", errorMessage);
         if (errorMessage) {
           toast.error(errorMessage);
         }
@@ -78,7 +78,7 @@ const Login = () => {
     // console.log(email);
   };
 
-  console.log(email);
+  // console.log(email);
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
