@@ -39,12 +39,6 @@ const ToyDetails = () => {
           <h2 className="text-3xl font-bold mb-4">{toy.toyName}</h2>
 
           <p className=" font-medium mb-2">
-            Rating:{" "}
-            <span className="text-indigo-600 font-medium">
-              {toy.rating}
-            </span>{" "}
-          </p>
-          <p className=" font-medium mb-2">
             Seller Name:{" "}
             <span className="text-indigo-600 font-medium">
               {toy.sellerName}
@@ -64,12 +58,19 @@ const ToyDetails = () => {
             </span>
           </p>
 
+          <p className=" font-medium mb-2">
+            Rating:{" "}
+            <span className="text-indigo-600 font-medium">
+              {toy.rating}
+            </span>{" "}
+          </p>
+
           <p className="text-xl font-semibold mb-4">
             Price:{" "}
             <span className="text-indigo-600 font-medium">${toy.price}</span>
           </p>
 
-          <p className="font-medium">{toy.description}</p>
+          <p className="font-normal text-xl">{toy.description}</p>
         </div>
       </div>
 

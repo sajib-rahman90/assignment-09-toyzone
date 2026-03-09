@@ -30,8 +30,8 @@ const AboutUs = () => {
           </div>
 
           {/* Text */}
-          <div>
-            <h2 className="text-4xl font-semibold mb-4 text-gray-800">
+          <div className="px-8 md:py-10">
+            <h2 className="text-4xl font-semibold mb-4 text-indigo-600">
               Our Mission
             </h2>
 

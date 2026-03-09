@@ -1,6 +1,6 @@
-import { signInWithPopup } from "firebase/auth";
+import { signInWithPopup, signOut } from "firebase/auth";
 import React, { useContext, useState } from "react";
-import { Link } from "react-router";
+import { Link, Navigate, useNavigate } from "react-router";
 import { auth } from "../Firebase/Firebase.config";
 import { toast } from "react-toastify";
 import { FaEye } from "react-icons/fa";
@@ -18,6 +18,7 @@ const Register = () => {
   const [photo, setPhoto] = useState("");
 
   const [show, setShow] = useState(false);
+  const navigate = useNavigate();
 
   const { createUserWithEmailAndPasswordFunc, updateProfileFunc } =
     useContext(AuthContext);
@@ -33,25 +34,20 @@ const Register = () => {
       );
       return;
     }
-    console.log(name, email, password, photo);
 
-    // createUserWithEmailAndPassword(auth, email, password)
     createUserWithEmailAndPasswordFunc(email, password)
-      .then((res) => {
-        // updateProfile(res.user, {
-        //   displayName: name,
-        //   photoURL: photo,
-        // })
+      .then(() => {
         updateProfileFunc(name, photo)
-          .then((res) => {
-            toast.success("Registation Succesfull!");
-            console.log(res);
+          .then(() => {
+            return signOut(auth);
           })
           .catch((err) => {
             toast.error(err);
+          })
+          .then(() => {
+            toast.success("Registration Successful!");
+            navigate("/login");
           });
-        toast.success("Registation Succesfull!");
-        console.log(res);
       })
       .catch((err) => {
         const errorMessage = err.message;
