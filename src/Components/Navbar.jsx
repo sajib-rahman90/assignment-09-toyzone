@@ -84,7 +84,9 @@ const Navbar = () => {
           ) : (
             <NavLink
               to={"/login"}
-              className={({ isActive }) => (isActive ? "text-cyan-300" : "")}
+              className={({ isActive }) =>
+                `${isActive ? "text-cyan-300" : ""} mx-auto md:mx-0`
+              }
             >
               Login
             </NavLink>
